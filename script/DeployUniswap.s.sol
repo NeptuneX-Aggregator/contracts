@@ -13,7 +13,10 @@ contract DeployUniswap is Script {
         address wbnb = deployCode("WETH.sol:WETH9");
         console.log("WETH9: %s", wbnb);
 
-        address factory = deployCode("UniswapV2Factory.sol", abi.encode(0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266));
+        address factory = deployCode(
+            "UniswapV2Factory.sol",
+            abi.encode(address(1))
+        );
         console.log("Factory: %s", factory);
 
         router = deployCode("UniswapV2Router02.sol", abi.encode(factory, wbnb));
