@@ -26,3 +26,5 @@ contract DeployUniswap is Script {
         uniswapRouter = IUniswapV2Router02(router);
     }
 }
+
+// forge script  script/DeployUniswap.s.sol:DeployUniswap --rpc-url $SCROLL_SEPOLIA_RPC --private-key $PRIVATE_KEY --legacy --gas-price 8000000000 --broadcast
