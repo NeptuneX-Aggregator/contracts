@@ -10,21 +10,22 @@ contract DeployUniswap is Script {
 
     function run() external returns (address router) {
         vm.startBroadcast();
-        address weth = deployCode("WETH.sol:WETH9");
-        console.log("WETH9: %s", weth);
+        // //address weth = deployCode("WETH.sol");
+        // //console.log("WETH9: %s", weth);
+        // address weth = 0x0000000000000000000000000000000000000000;
 
-        address factory = deployCode(
-            "UniswapV2Factory.sol",
-            abi.encode(address(1))
-        );
-        console.log("Factory: %s", factory);
+        // address factory = deployCode(
+        //     "UniswapV2Factory.sol",
+        //     abi.encode(address(1))
+        // );
+        // console.log("Factory: %s", factory);
 
-        router = deployCode("UniswapV2Router02.sol", abi.encode(factory, weth));
-        console.log("Router: %s", router);
+        // router = deployCode("UniswapV2Router02.sol", abi.encode(factory, weth));
+        // console.log("Router: %s", router);
         vm.stopBroadcast();
 
         uniswapRouter = IUniswapV2Router02(router);
     }
 }
 
-// forge script  script/DeployUniswap.s.sol:DeployUniswap --rpc-url $SCROLL_SEPOLIA_RPC --private-key $PRIVATE_KEY --legacy --gas-price 8000000000 --broadcast
+// forge script script/DeployUniswap.s.sol:DeployUniswap --rpc-url $BLAST_TESTNET_RPC --private-key $PRIVATE_KEY --gas-price 8000000000 --broadcast
