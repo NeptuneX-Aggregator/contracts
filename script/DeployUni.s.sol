@@ -4,14 +4,15 @@ pragma solidity >=0.4.0;
 
 import {Script, console} from "forge-std/Script.sol";
 import {Test} from "forge-std/Test.sol";
-import {IUniswapV2Router02} from "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
+import "src/interaces/ICallHash.sol";
+//import "src/CallHash.sol";
 
-contract DeployUniswap is Script, Test {
-    IUniswapV2Router02 uniswapRouter;
+contract DeployUni is Script, Test {
     address deployer = 0x435D2a6b96d7A65EC2Ae430C0b1CBd71A6F09095;
 
     address weth = 0x4200000000000000000000000000000000000023;
-    function run() external returns (address router) {
+
+    function run() external {
         string
             memory validPath = "out/UniswapV2Factory.sol/UniswapV2Factory.json";
         assertTrue(vm.exists(validPath));
@@ -21,19 +22,20 @@ contract DeployUniswap is Script, Test {
         assertTrue(vm.exists(validPath2));
 
         vm.startBroadcast();
-
         address factory = deployCode(
             "UniswapV2Factory.sol",
             abi.encode(deployer)
         );
         console.log("Factory: %s", factory);
 
-        router = deployCode("UniswapV2Router02.sol", abi.encode(factory, weth));
+        address router = deployCode(
+            "UniswapV2Router02.sol",
+            abi.encode(factory, weth)
+        );
         console.log("Router: %s", router);
-        vm.stopBroadcast();
 
-        uniswapRouter = IUniswapV2Router02(router);
+        vm.stopBroadcast();
     }
 }
 
-// forge script script/DeployUniswap.s.sol:DeployUniswap --rpc-url $BLAST_TESTNET_RPC --private-key $PRIVATE_KEY --gas-price 8000000000 --broadcast
+// forge script script/DeployUni.s.sol:DeployUni --rpc-url $BLAST_TESTNET_RPC --private-key $PRIVATE_KEY --gas-price 1100000 --broadcast
