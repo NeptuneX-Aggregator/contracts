@@ -1,5 +1,5 @@
 pragma solidity =0.5.16;
-import "src/mock/UniswapV2Pair.sol";
+import "src/UniswapV2Pair.sol";
 
 contract CallHash {
     function getInitHash() public pure returns (bytes32) {

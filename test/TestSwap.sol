@@ -8,7 +8,7 @@ import {IUniswapV2Pair} from "@uniswap/v2-core/contracts/interfaces/IUniswapV2Pa
 import {IUniswapV2Router02} from "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import {IUniswapV2Factory} from "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
 
-import {Swap} from "../src/Swap.sol";
+import {Swap} from "../script/Swap.sol";
 import {ERC20Token} from "../src/ERC20Token.sol";
 
 import {DeploySwap} from "../script/DeploySwap.s.sol";
