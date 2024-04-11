@@ -1,5 +1,0 @@
-// // // forge flatten --output src/mock/UniswapV2Factory_flattened.sol src/mock/UniswapV2Factory.sol
-
-// // forge verify-contract 0x2fc1E147D6C10B6ACaE0AAC3EB0b528668045c84 src/mock/UniswapV2Factory.sol:UniswapV2Factory --verifier-url 'https://api.routescan.io/v2/network/testnet/evm/168587773/etherscan' --etherscan-api-key "verifyContract" --num-of-optimizations 200 --compiler-version 0.5.16 --constructor-args $(cast abi-encode "constructor(address _feeToSetter)" 0x435D2a6b96d7A65EC2Ae430C0b1CBd71A6F09095)
-
-// // forge verify-contract 0xB2eb65Bbc78Cb8FbB3c31BEC4E50B406AcCC91b7 src/mock/UniswapV2Router02.sol:UniswapV2Router02 --verifier-url 'https://api.routescan.io/v2/network/testnet/evm/168587773/etherscan' --etherscan-api-key "verifyContract" --num-of-optimizations 200 --compiler-version 0.6.6 --constructor-args $(cast abi-encode "constructor(address _factory, address _WETH)" 0x435D2a6b96d7A65EC2Ae430C0b1CBd71A6F09095 0x4200000000000000000000000000000000000023)
